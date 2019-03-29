@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+ <label>Enter a number</label>
+ <input id='pascalNumber' type='number' onchange='myFunction()'/>
+  <label id='answer'></label>
+
+<script>
+function myFunction() {
+ var pascalArray=document.getElementById('pascalNumber').value;
+  var answer=[];
+  for(let i=0;i<Number(pascalArray)-1;i++){
+   var value=[];
+    for(let j=0;j<=i;j++){
+      if(i==j||j==0){
+        value[j]=1;
+      }
+      else {
+        value[j]=answer[i-1][j-1]+answer[i-1][j];
+      }
+    }
+    answer.push(value);
+  }
+  var returnValue='';
+ console.log(answer);
+  for(let k=0;k<answer.length;k++){
+returnValue=returnValue+" <br> "+answer[k];    
+  }
+  document.getElementById('answer').innerHTML=returnValue;
+}
+</script>
+
+</body>
+</html>
